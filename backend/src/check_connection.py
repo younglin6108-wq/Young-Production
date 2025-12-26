@@ -17,30 +17,6 @@ def connect_notion():
         return None
     return Client(auth=NOTION_KEY)
 
-def create_test_page(client, db_id):
-    print(f"\n--- Attempting to create page in DB {db_id} ---")
-    try:
-        response = client.pages.create(
-            parent={"database_id": db_id},
-            properties={
-                "Title": {
-                    "title": [
-                        {"text": {"content": "We did it"}}
-                    ]
-                },
-                "Full Transcript": {
-                    "rich_text": [
-                        {"text": {"content": "This is a test from Young Production."}}
-                    ]
-                }
-            }
-        )
-        print(f"✅ Success! Created Page ID: {response['id']}")
-        print(f"URL: {response['url']}")
-        return True
-    except Exception as e:
-        print(f"❌ Failed to create page: {e}")
-        return False
 
 def test_connection():
     notion = connect_notion()
@@ -66,7 +42,8 @@ def test_connection():
         print(f"❌ Failed to read Tracker DB: {e}")
 
     # 2. Test Viral DNA (Write Test)
-    create_test_page(notion, VIRAL_DNA_DB_ID)
+    # create_test_page(notion, VIRAL_DNA_DB_ID)
+    print("--- Connection Check Complete ---")
 
 if __name__ == "__main__":
     test_connection()

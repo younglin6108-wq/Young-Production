@@ -1,6 +1,39 @@
+# Notion Integration
 notion-client
 python-dotenv
+requests
+
+# Data Processing
 pandas
+
+# AI Integration
+anthropic
+
+# Content Download & Processing
+yt-dlp
+faster-whisper
+
+# OCR (Text Extraction from Images/Video)
+pytesseract
+easyocr
+Pillow
+opencv-python
+
+# Web Scraping
+beautifulsoup4
+lxml
+
+# Configuration
+pyyaml
+
+# CLI
+click
+rich
+
+# API Server (Future)
 fastapi
 uvicorn
-requests
+
+# Testing
+pytest
+pytest-mock

@@ -1,0 +1,31 @@
+models:
+  cheap: "claude-3-5-haiku-20241022"
+  balanced: "claude-3-5-sonnet-20241022"
+  premium: "claude-opus-4-20250514"
+
+skill_model_mapping:
+  # Classification tasks - cheap
+  S08: "cheap"  # classify_info_type
+
+  # Simple extraction - cheap
+  S06: "cheap"  # generate_hook
+  S07: "cheap"  # generate_open_loop
+  S16: "cheap"  # link_dna_to_production (ranking)
+
+  # Complex analysis - balanced
+  S05: "balanced"  # extract_perspective
+  S13: "balanced"  # generate_report
+  S15: "balanced"  # generate_script
+  S19: "balanced"  # generate_scene_breakdown
+
+  # Critical decisions - premium (currently none)
+
+cost_limits:
+  daily_soft_usd: 5.00
+  daily_hard_usd: 20.00
+  monthly_soft_usd: 100.00
+  monthly_hard_usd: 500.00
+
+retry:
+  max_attempts: 3
+  backoff_factor: 2.0

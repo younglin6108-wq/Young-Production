@@ -1,0 +1,109 @@
+databases:
+  production_tracker:
+    id: ${PROD_TRACKER_DB_ID}
+    name: "Young Production Tracker"
+    properties:
+      Title:
+        type: title
+        required: true
+      Status:
+        type: status
+        options: ["pending", "Idea", "Researching", "DNA matching", "Ready to Render", "Done"]
+      Channel:
+        type: select
+        options: ["next10yearz", "orbity", "BioVibe"]
+      Format:
+        type: select
+        options: ["shorts", "Video"]
+      "Viral DNA sources":
+        type: relation
+        database: viral_dna
+      "Published Date":
+        type: date
+      "production URL":
+        type: url
+      "Production Date":
+        type: date
+      "Voice ID":
+        type: select
+        options: ["Drew", "Adam", "Rachel"]
+      "Rendered File":
+        type: url
+
+  viral_dna:
+    id: ${VIRAL_DNA_DB_ID}
+    name: "Viral DNA"
+    properties:
+      Title:
+        type: title
+        required: true
+      URL:
+        type: url
+        required: true
+      "Extracted Perspective":
+        type: rich_text
+      "Hook Potential":
+        type: rich_text
+      "Open Loop Seed":
+        type: rich_text
+      "Tags (niche)":
+        type: multi_select
+      "Info Type":
+        type: multi_select
+        options: ["Reel (Audio)", "Reel (Visual Only)", "Carousel", "Static Post", "Youtube Short", "Long Video"]
+      Productions:
+        type: relation
+        database: production_tracker
+      Creator:
+        type: rich_text
+
+  young_empire:
+    id: ${YOUNG_EMPIRE_DB_ID}
+    name: "Young Empire"
+    properties:
+      "Report Title":
+        type: title
+        required: true
+      Status:
+        type: status
+        options: ["Not started", "Drafting", "Published"]
+      Channel:
+        type: select
+        options: ["next10yearz", "Orbity", "BioVibe"]
+      Year:
+        type: select
+      Month:
+        type: select
+      Week:
+        type: select
+        options: ["W1", "W2", "W3", "W4"]
+
+  scene_list:
+    id: ${SCENE_LIST_DB_ID}
+    name: "Global Scene List"
+    properties:
+      Name:
+        type: title
+        required: true
+      Production:
+        type: relation
+        database: production_tracker
+        required: true
+      Script:
+        type: rich_text
+      "Visual Prompt":
+        type: rich_text
+      Status:
+        type: status
+        options: ["Pending", "Downloading", "Error", "Ready"]
+      Source:
+        type: select
+        options: ["Pexels", "Youtube", "Manual", "B-Roll Library", "AI-Generate"]
+      "Source URL":
+        type: url
+      "Asset Path":
+        type: rich_text
+      "Duration (sec)":
+        type: number
+      "Source Timestamp":
+        type: rich_text
