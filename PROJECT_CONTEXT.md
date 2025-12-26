@@ -592,10 +592,37 @@ When continuing work on this project:
 | Test connection | `./venv/bin/python3 src/check_connection.py` |
 | Create test entries | `./venv/bin/python3 src/manual_check.py` |
 | Clear test data | `./venv/bin/python3 src/clear_dbs.py` |
+| Run Phase 1 demo | `./venv/bin/python3 src/demo_phase1.py` |
 | Run workflow (dry-run) | `./venv/bin/python3 src/run.py --workflow WF1 --dry-run` |
 | Run workflow (execute) | `./venv/bin/python3 src/run.py --workflow WF1` |
 | Interactive menu | `./venv/bin/python3 src/run.py` |
 | Check AI costs | `cat state/ai_costs.json` |
+| Git push to GitHub | See [GIT_SETUP.md](GIT_SETUP.md) for SSH setup |
+
+---
+
+## 🔄 Working on Multiple Devices
+
+When switching devices:
+
+1. **First time on new device**:
+   - Follow [GIT_SETUP.md](GIT_SETUP.md) to setup SSH keys
+   - Clone repo: `git clone git@github.com:younglin6108-wq/Young-Production.git`
+   - Setup environment: `cd Young-Production/backend && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt`
+   - Copy `.env` file with API keys
+
+2. **Pulling latest changes**:
+   ```bash
+   cd /home/young/Young-Production
+   git pull origin master
+   ```
+
+3. **Pushing your changes**:
+   ```bash
+   git add -A
+   git commit -m "Description of changes"
+   git push origin master
+   ```
 
 ---
 
